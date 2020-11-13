@@ -5,9 +5,12 @@
  */
 int parseDecimalChar(char c)
 {
-    (void)c;
-
-    return -1;
+    if  (c > '9' || c < '0')
+    {
+        return -1;
+    }
+    // subtract the ASCI value (48) from c to get the corresponding int value
+    return c - 48;
 }
 
 /*
