@@ -1,4 +1,4 @@
-#include "../testlib/testlib.h"
+#include "testlib.h"
 #include "print.h"
 
 int main()

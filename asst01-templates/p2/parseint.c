@@ -5,12 +5,46 @@
  */
 int parseDecimalChar(char c)
 {
-    if  (c > '9' || c < '0')
+    if (c > '9' || c < '0')
     {
         return -1;
     }
     // subtract the ASCI value (48) from c to get the corresponding int value
     return c - 48;
+}
+
+int getLength(char *string)
+{
+    int size = 0;
+    for (int i = 0; string[i] != '\0'; i++)
+    {
+        size++;
+    }
+    return size;
+}
+
+int calcInASystem(int system, char *string)
+{
+    if (*string == '\0')
+    {
+        return -1;
+    }
+
+    int newInt = 0;
+    int factor = 1;
+    int size = getLength(string);
+
+    for (int i = size - 1; string[i] != '\0'; i--)
+    {
+        int parsedInt = parseDecimalChar(string[i]);
+        if (parsedInt == -1)
+        {
+            return -1;
+        }
+        newInt += parsedInt * factor;
+        factor = factor * system;
+    }
+    return newInt;
 }
 
 /*
@@ -19,7 +53,12 @@ int parseDecimalChar(char c)
  */
 int parseInt(char *string)
 {
-    (void)string;
-
-    return -1;
+    if (string[0] == '0')
+    {
+        return calcInASystem(8, string);
+    }
+    else
+    {
+        return calcInASystem(10, string);
+    }
 }
