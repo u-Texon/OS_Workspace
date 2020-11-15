@@ -10,9 +10,12 @@ int parseDecimalChar(char c)
         return -1;
     }
     // subtract the ASCI value (48) from c to get the corresponding int value
-    return c - 48;
+    return c - '0';
 }
 
+/* 
+ * returns the length of a string
+ */
 int getLength(char *string)
 {
     int size = 0;
@@ -22,7 +25,9 @@ int getLength(char *string)
     }
     return size;
 }
-
+/*
+ * takes the input of a string and parses it to an intger from any given number system to the decimal system of numbers.
+ */
 int calcInASystem(int system, char *string)
 {
     if (*string == '\0')

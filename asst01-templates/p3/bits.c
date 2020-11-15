@@ -7,9 +7,9 @@
  */
 int getN(uint64_t *A, size_t n)
 {
-    (void) A;
-    (void) n;
-    return 42;
+    int arrayNum = n / 64;
+    int rest = n % 64;
+    return (A[arrayNum] >> (n - rest)) & 1;
 }
 
 /*
@@ -17,8 +17,9 @@ int getN(uint64_t *A, size_t n)
  */
 void setN(uint64_t *A, size_t n)
 {
-    (void) A;
-    (void) n;
+    int arrayNum = n / 64;
+    int rest = n % 64;
+    A[arrayNum] = (1 << (n - rest)) | A[arrayNum];
 }
 
 /*
@@ -26,18 +27,16 @@ void setN(uint64_t *A, size_t n)
  */
 void clrN(uint64_t *A, size_t n)
 {
-    (void) A;
-    (void) n;
+    int arrayNum = n / 64;
+    int rest = n % 64;
+    A[arrayNum] = A[arrayNum] << (n - rest) & 0;
 }
-
 
 /*
  * Rotates the integer i n bits to the right.
  */
 uint64_t rot(uint64_t i, int n)
 {
-    (void) i;
-    (void) n;
-
-    return 0;
+    //idk
+    return -1;
 }
