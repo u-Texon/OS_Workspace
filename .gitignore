@@ -53,9 +53,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-#Nils Shit
-*/*
-!*/Makefile
-!*/*.c
-!*/*.h
